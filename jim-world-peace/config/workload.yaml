@@ -1,0 +1,17 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: jim-world-peace
+  labels:
+    apps.tanzu.vmware.com/workload-type: web
+    app.kubernetes.io/part-of: jim-world-peace
+spec:
+  source:
+    git:
+      url: https://github.com/jimbaron/jim-world-peace
+      ref:
+        branch: master
+  build: 
+    env: 
+      - name: BP_DOTNET_PROJECT_PATH
+        value: jim-world-peace
